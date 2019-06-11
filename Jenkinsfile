@@ -5,6 +5,9 @@ pipeline {
       yamlFile 'nodejs-pod.yaml'
     }
   }
+  triggers {
+    eventTrigger simpleMatch('hello-api-eli')
+  }
   stages {
     stage('Test') {
       agent { label 'nodejs-app' }
